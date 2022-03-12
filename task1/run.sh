@@ -1,17 +1,30 @@
 #!/bin/bash
-declare -A arg
-for a in 1 2 3 4; do
-arg["$1"]="$2"
-shift 
+
+while [ -n "$1" ]
+do
+case $1 in
+	--input_folder) inputf=$2;;
+	--extension) ext=$2;;
+	--backup_folder) bup_f=$2;;
+	--backup_archive_name) bupf_arc=$2;;
+	esac
 shift
 done
 
-input_folder="${arg["--input_folder"]}"
-extension="${arg["--extension"]}"
-backup_folder="${arg["--backup_folder"]}"
-backup_archive_name="${arg["--backup_archive_name"]}"
 
-mkdir -p  $backup_folder
-cp $(find $input_folder -name "*.$extension" -type f) $backup_folder --parents
-tar czf  $backup_folder $backup_folder/$backup_archive_name 
+
+mkdir $bup_f
+
+
+
+for item in $(find $inputf -type f -name "*.$ext")
+do
+	cp --backup=numbered $item $bup_f
+done
+
+
+
+tar -czpf $bupf_arc $bup_f
+
 echo "done"
+
