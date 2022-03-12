@@ -14,3 +14,4 @@ backup_archive_name="${arg["--backup_archive_name"]}"
 mkdir $backup_folder
 cp $(find $input_folder -name "*.$extension" -type f) $backup_folder --parents
 tar czf $backup_folder/$backup_archive_name $backup_folder
+echo "done"
