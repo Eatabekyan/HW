@@ -30,3 +30,4 @@ int main() {
         printf("%d\n", st.sum(1, 0, N - 1, Lft, Rght));
     }
 }
+////////////////////////

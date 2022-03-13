@@ -27,7 +27,7 @@ TEST(TrTest, SegTrTst) {
     }
     printf("passed all tests!\n");
 };
-
+/////////////////////////////////////
 TEST(NTest, gcd_test) {
     for (int i = 0; i < 1000; i++) {
         int x = rand() % 1000 + 1;

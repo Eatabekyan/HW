@@ -11,6 +11,7 @@ int gcd(int a, int b) {
 '''
 
 
+########################################################
 
 file = open("index.h", "w+")
 file.write(code)

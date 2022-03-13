@@ -1,7 +1,7 @@
 #pragma once
-
+/////////////////
 #include <vector>
-
+/////////////////
 namespace my_lib {
     class SegmentTree {
     public:
