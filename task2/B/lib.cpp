@@ -24,7 +24,7 @@ void my_lib::SegmentTree::update(int Vec, int Tlft, int Trght, int Pstn, int NVa
             update(Vec * 2 + 1, Mt + 1, Trght, Pstn, NVal);
             
         else
-            update(Vec * 2, Tlft, Mt, Pstn, Nval);
+            update(Vec * 2, Tlft, Mt, Pstn, NVal);
         THIS[Vec] = THIS[Vec * 2 + 1] + THIS[Vec * 2];
     }
 }
@@ -37,7 +37,7 @@ void my_lib::SegmentTree::update(int Vec, int Tlft, int Trght, int Pstn, int NVa
 my_lib::SegmentTree::SegmentTree(const std::vector<int> &x) {
     N_N = x.size();
     THIS.resize(4 * N_N);
-    build(x, 1, 0, N__N - 1);
+    build(x, 1, 0, N_N - 1);
 }
 
 //______________________________________________________
@@ -48,11 +48,12 @@ my_lib::SegmentTree::SegmentTree(const std::vector<int> &x) {
 
 
 void my_lib::SegmentTree::build(const std::vector<int> &x, int Vec, int Tlft, int Trght) {
-    if (Trght != Tlft)
-	int tm = (Tlft + Trght); tm /= 2;
-        build(x, Vec * 2,Tlft, tm);
-        build(a, Vec * 2 + 1, tm + 1, Trght);
-        THIS[Vec] = THIS[Vec * 2] + THIS[Vec * 2 + 1];	
+    if (Trght != Tlft){
+	    int tm = (Tlft + Trght); tm /= 2;
+            build(x, Vec * 2,Tlft, tm);
+            build(x, Vec * 2 + 1, tm + 1, Trght);
+            THIS[Vec] = THIS[Vec * 2] + THIS[Vec * 2 + 1];
+        }
     else {
         THIS[Vec] = x[Tlft];
     }
