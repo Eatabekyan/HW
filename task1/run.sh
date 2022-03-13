@@ -11,9 +11,11 @@ case $1 in
 shift
 done
 
+ 
 
 
 mkdir $bup_f
+
 
 
 
