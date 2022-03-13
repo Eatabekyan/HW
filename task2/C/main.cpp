@@ -19,8 +19,8 @@ int main() {
         if (i % 10 == 0) {
             printf("%d\n",  i);
         }
-        int Lft = rand() % n;
-        int Rght = rand() % n;
+        int Lft = rand() % N;
+        int Rght = rand() % N;
         if (Lft > Rght) {
             std::swap(Lft, Rght);
         }
