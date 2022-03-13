@@ -1,14 +1,12 @@
 code = '''
 #pragma once
 #include <algorithm>
-
-int faktorial(int a) {
-    int s=1;
-    while(a!=1) {
-        s*=a;
-	a--;
+int gcd(int a, int b) {
+    while(b) {
+        a %= b;
+        std::swap(a, b);
     }
-    return s;
+    return a;
 }
 '''
 

@@ -4,7 +4,7 @@
 
 TEST(TrTest, SegTrTst) {
     int Num  = 100;
-    std::vector<int> DATA_v(Num);
+    std::vector<int> Data_v(Num);
     for (int i = 0; i < Num; i++) {
         Data_v[i] = rand() % Num;
         if (rand() % 2) {
@@ -20,7 +20,7 @@ TEST(TrTest, SegTrTst) {
             std::swap(Lft, Rght);
         }
         int expS = 0;
-        for (int j = l; j <= r; j++) {
+        for (int j = Lft; j <= Rght; j++) {
             expS += Data_v[j];
         }
         ASSERT_EQ(expS, st.sum(1, 0, Num - 1, Lft, Rght));
