@@ -39,7 +39,7 @@ TEST(NTest, gcd_test) {
                 true_gcd = a;
             }
         }
-        ASSERT_EQ(trueGcd, gcd(x, y));
+        ASSERT_EQ(true_gcd, gcd(x, y));
     }
     printf("passed all tests!\n");
 }
