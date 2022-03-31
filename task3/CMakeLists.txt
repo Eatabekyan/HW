@@ -3,13 +3,7 @@ cmake_minimum_required(VERSION 3.0)
 if (ARM_BUILD)
 	set(CMAKE_SYSTEM_NAME Linux)
 	set(CMAKE_SYSTEM_PROCESSOR arm)
-<<<<<<< HEAD
-
 	set(tools ${CMAKE_INSTALL_PREFIX}/gcc-4.7-linaro-rpi-gnueabihf)
-=======
-	
-	set(tools /gcc-4.7-linaro-rpi-gnueabihf)
->>>>>>> 97c9681417630428226db49c55ebc026fc090545
 	set(CMAKE_C_COMPILER ${tools}/arm-linux-gnueabihf-gcc)
 	set(CMAKE_CXX_COMPILER ${tools}/arm-linux-gnueabihf-g++)
 endif()
@@ -19,10 +13,6 @@ project(SimpleLibrary)
 include_directories(include)
 
 if (ARM_BUILD)
-<<<<<<< HEAD
-
-=======
->>>>>>> 97c9681417630428226db49c55ebc026fc090545
 	install(FILES ${SimpleLibrary_SOURCE_DIR}/include/buffer.h
 		DESTINATION ${CMAKE_INSTALL_PREFIX}/include)
 	set(CMAKE_INSTALL_RPATH ${CMAKE_INSTALL_PREFIX}/lib)
@@ -37,14 +27,7 @@ add_executable(MainLib main_lib.cpp)
 
 target_link_libraries(MainLib buffer)
 
-<<<<<<< HEAD
 if(ARM_BUILD)
-install(TARGETS Main MainLib
-	DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
+	install(TARGETS Main MainLib
+		DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
 endif()
-=======
-
-install(TARGETS Main MainLib
-	DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
-
->>>>>>> 97c9681417630428226db49c55ebc026fc090545
