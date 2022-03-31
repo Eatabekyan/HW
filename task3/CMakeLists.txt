@@ -1,9 +1,10 @@
 cmake_minimum_required(VERSION 3.0)
 
-set(CMAKE_SYSTEM_PROCESSOR x86_64_aarch64)
-set(CMAKE_C_COMPILER ${TOOLCHAIN}/x86_64_aarch64-linux-gnu-gcc)
-set(CMAKE_CXX_COMPILER ${TOOLCHAIN}/x86_64_aarch64-linux-gnu-g++)
-
+if(${ARM_BUILD})
+	set(CMAKE_SYSTEM_PROCESSOR aarch64)	
+	set(CMAKE_C_COMPILER ${TOOLCHAIN}/aarch64-linux-gnu-gcc)
+	set(CMAKE_CXX_COMPILER ${TOOLCHAIN}/aarch64-linux-gnu-g++)
+endif()
 
 project(SimpleLibrary)
 
