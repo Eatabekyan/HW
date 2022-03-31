@@ -2,11 +2,8 @@ cmake_minimum_required(VERSION 3.0)
 
 if (ARM_BUILD)
 	set(CMAKE_SYSTEM_PROCESSOR arm)
-	
 	set(CMAKE_C_COMPILER ${TOOLCHAIN}/arm-linux-gnueabihf-gcc)
-
 	set(CMAKE_CXX_COMPILER ${TOOLCHAIN}/arm-linux-gnueabihf-g++) 
-	
 endif()
 
 project(SimpleLibrary)
@@ -16,9 +13,7 @@ include_directories(include)
 if (ARM_BUILD)
 	install(FILES ${SimpleLibrary_SOURCE_DIR}/include/buffer.h
 		DESTINATION ${CMAKE_INSTALL_PREFIX}/include)
-
 	set(CMAKE_INSTALL_RPATH ${CMAKE_INSTALL_PREFIX}/lib)
-
 	set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 endif()
 
