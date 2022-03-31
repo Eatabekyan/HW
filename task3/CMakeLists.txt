@@ -1,9 +1,12 @@
 cmake_minimum_required(VERSION 3.0)
 
 if (ARM_BUILD)
+	set(CMAKE_SYSTEM_NAME Linux)
 	set(CMAKE_SYSTEM_PROCESSOR arm)
+	
+	set(tools /gcc-4.7-linaro-rpi-gnueabihf)
 	set(CMAKE_C_COMPILER ${tools}/arm-linux-gnueabihf-gcc)
-	set(CMAKE_CXX_COMPILER ${tools}/arm-linux-gnueabihf-g++) 
+	set(CMAKE_CXX_COMPILER ${tools}/arm-linux-gnueabihf-g++)
 endif()
 
 project(SimpleLibrary)
