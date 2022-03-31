@@ -2,10 +2,9 @@ cmake_minimum_required(VERSION 3.0)
 
 if (ARM_BUILD)
 	set(CMAKE_SYSTEM_NAME Linux)
-	set(CMAKE_SYSTEM_PROCESSOR aarch64)
-	set(tools ${CMAKE_INSTALL_PREFIX}/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.tar)
-	set(CMAKE_C_COMPILER ${tools}/x86_64_aarch64-linux-gnu-gcc)
-	set(CMAKE_CXX_COMPILER ${tools}/x86_64_aarch64-linux-gnu-g++)
+	set(CMAKE_SYSTEM_PROCESSOR x86_64_aarch64)
+	set(CMAKE_C_COMPILER ${TOOLCHAIN}/x86_64_aarch64-linux-gnu-gcc)
+	set(CMAKE_CXX_COMPILER ${TOOLCHAIN}/x86_64_aarch64-linux-gnu-g++)
 endif()
 
 project(SimpleLibrary)
