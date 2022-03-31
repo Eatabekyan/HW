@@ -14,6 +14,7 @@ project(SimpleLibrary)
 include_directories(include)
 
 if (ARM_BUILD)
+
 	install(FILES ${SimpleLibrary_SOURCE_DIR}/include/buffer.h
 		DESTINATION ${CMAKE_INSTALL_PREFIX}/include)
 	set(CMAKE_INSTALL_RPATH ${CMAKE_INSTALL_PREFIX}/lib)
