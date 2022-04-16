@@ -56,11 +56,11 @@ void Weather::SetApiKey(const std::string &api_key) {
 
 float Weather::GetTomorrowTemperature(const std::string& city) {
   json response = GetResponseForCity(city, kForecastUrl);
-  return response["list"][7]["main"]["temp"];
+  return response["list"]["7"]["main"]["temp"];
 }
 
 std::string Weather::GetTomorrowDiff(const std::string &city) {
-  float diff = GetTomorrowTemperature(city) - GetTemperature(city);
+  float diff = GetTomorrowTemperature(city)-GetTemperature(city);
   std::stringstream output;
 
   output << "The weather in " << city << " tomorrow will be ";
