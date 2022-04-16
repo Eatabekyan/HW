@@ -5,7 +5,7 @@
 
 #include "TreeTestCase.h"
 #include "Tree.h"
-
+#include <fstream>
 #include <filesystem>
 
 using std::filesystem::path;
@@ -58,7 +58,8 @@ TEST(Test2 ,test){
 
 TEST(Test3,test){
     ASSERT_THROW(GetTree("../dgjs", true),std::invalid_argument);
-    ASSERT_THROW(GetTree("../CMakeLists", true), std::invalid_argument);
+    std::ofstream f("./Cm.txt");
+    ASSERT_THROW(GetTree("./Cm.txt", true), std::invalid_argument);
     ASSERT_TRUE(GetTree("..", true).is_dir);
     FileNode node = GetTree("..", true);
     ASSERT_TRUE(node.children[1].is_dir);

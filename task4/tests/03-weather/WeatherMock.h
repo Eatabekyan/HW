@@ -8,6 +8,7 @@
 #include <Weather.h>
 
 class WeatherMock : public Weather {
+	virtual cpr::Response Get(const std::string& city, const cpr::Url& url);
 };
 
 
