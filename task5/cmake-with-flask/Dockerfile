@@ -21,9 +21,8 @@ WORKDIR /opt/techprog
 COPY . .
 RUN cmake .
 RUN make
-EXPOSE 8898
 ENTRYPOINT ["python3"] 
-CMD ["app.py"] 
+CMD ["app.py"] ["-p"]["8898"]
 
 
 
