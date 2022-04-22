@@ -22,7 +22,7 @@ COPY . .
 RUN cmake .
 RUN make
 ENTRYPOINT ["python3"] 
-CMD ["app.py"] ["-p"]["8898"]
+CMD ["app.py"]["8898"]
 
 
 
