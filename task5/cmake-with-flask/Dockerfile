@@ -20,5 +20,6 @@ WORKDIR /opt/techprog
 COPY . .
 RUN cmake .
 RUN make
-CMD ["app.py"]
+
+CMD ["python3" "app.py"]
 
