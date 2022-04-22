@@ -37,7 +37,7 @@ USER tp2022user
 WORKDIR /opt/techprog
 
 # Скопируем приложение со сборочного контейнера в рабочую директорию
-COPY --from=build /opt/techprog/bin/C .
+COPY --from=build /opt/techprog .
 
 # Установим точку входа
 ENTRYPOINT ["make"]
