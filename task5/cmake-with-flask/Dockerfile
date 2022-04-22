@@ -53,12 +53,14 @@ COPY --from=build /opt/techprog .
 # Установим точку входа
 ENTRYPOINT  ["make"]
 
-EXPOSE 8898
 
 RUN sudo apt-get update && sudo apt-get install -y python3.6 python3-distutils python3-pip python3-apt
-RUN sudo pip install flask
 
-CMD ["python3"]["app.py"]
+RUN ["python3"]["app.py"]
+
+
+CMD [ "python3", "-m" , "flask", "run", "--port=8898""--host=0.0.0.0"]
+
 
 
 
