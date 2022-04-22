@@ -1,31 +1,77 @@
+# В качестве базового образа для сборки используем gcc:latest
 FROM gcc:latest as build
 
+# Установим рабочую директорию для сборки GoogleTest
+WORKDIR /opt/techprog
 
-ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update && \
-    apt-get -y install gcc mono-mcs && \
-    rm -rf /var/lib/apt/lists/*
+# Скачаем все необходимые пакеты и выполним сборку GoogleTest
+# Такая длинная команда обусловлена тем, что
+# Docker на каждый RUN порождает отдельный слой,
+# Влекущий за собой, в данном случае, ненужный оверхед
 RUN apt-get update && \
     apt-get install -y \
       libboost-dev libboost-program-options-dev \
-      libgtest-dev \
-      cmake
-RUN apt-get install -y build-essential
-RUN apt-get update && apt-get install -y python3.6 python3-distutils python3-pip python3-apt
-RUN pip install flask
+      cmake  
+
+# Скопируем директорию /src в контейнер
+ADD . .
+
+# Установим рабочую директорию для сборки проекта
 WORKDIR /opt/techprog
-COPY . .
-RUN cmake .
-RUN make
+
+# Выполним сборку нашего проекта, а также его тестирование
+RUN cmake . && \
+    cmake --build . 
+
+# Запуск ---------------------------------------
+
+# В качестве базового образа используем ubuntu:latest
 FROM ubuntu:latest
 
-RUN groupadd -r sample && useradd -r -g sample sample
-USER sample
+# Добавим пользователя, потому как в Docker по умолчанию используется root
+# Запускать незнакомое приложение под root'ом неприлично :)
+RUN groupadd -r tp2022user && useradd -r -g tp2022user tp2022user
+USER tp2022user
 
-COPY . .
+# Установим рабочую директорию нашего приложения
+WORKDIR /opt/techprog
 
-ENTRYPOINT ["python3"] 
-CMD ["app.py"]["8898"][8080]
+# Скопируем приложение со сборочного контейнера в рабочую директорию
+COPY --from=build /opt/techprog/bin/C .
+
+# Установим точку входа
+ENTRYPOINT ["make"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
