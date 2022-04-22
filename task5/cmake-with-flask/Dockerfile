@@ -54,9 +54,9 @@ RUN sudo pip install flask
 # Установим точку входа
 ENTRYPOINT  ["make"]
 
+EXPOSE 8898
 
-
-CMD ["python3"]["app.py"]["8898"]["8080"]
+CMD ["python3"]["app.py"]
 
 
 
