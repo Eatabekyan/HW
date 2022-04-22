@@ -1,5 +1,6 @@
 FROM ubuntu:latest
 RUN useradd -ms /bin/bash tp2022user
+RUN su - tp2022user
 WORKDIR /home/tp2022user
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
@@ -20,6 +21,9 @@ WORKDIR /opt/techprog
 COPY . .
 RUN cmake .
 RUN make
+EXPOSE 8988
+ENTRYPOINT ["python3"] 
+CMD ["app.py"] 
 
-CMD ["python3" "app.py"]
+
 
