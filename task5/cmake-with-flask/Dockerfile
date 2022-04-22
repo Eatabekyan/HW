@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 RUN useradd -ms /bin/bash techproguser
-RUN su tp2022user
-WORKDIR /home/tp2022user
+RUN su techproguser
+WORKDIR /home/techproguser
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
     apt-get -y install gcc mono-mcs && \
