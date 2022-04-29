@@ -21,18 +21,6 @@ jobs:
       run: cmake --build .
 
     - name: Test
-      description: 'Greet someone and record the time'
-      inputs:
-        exec-path:  # id of input
-          description: 'Path to executable for running tests'
-          required: true
-        report-path:
-          description: 'Output path to report'
-          required: true
-        working-directory:
-          description: 'Path to workdir'
-          required: True
-      outputs:
-        time: # id of output
-          description: 'The time we greeted you'
-      run: make
+      uses: akhtyamovpavel/ActionGtestReport@v0.0.9
+      with:
+        who-to-greet: 'Mona the Octocat'
