@@ -21,6 +21,6 @@ jobs:
       run: cmake --build .
 
     - name: Test
-      uses: akhtyamovpavel/ActionGtestReport@v0.0.1
+      uses: eatabekyan/ActionGtestReport@v0.0.1
       with:
         who-to-greet: 'Mona the Octocat'
