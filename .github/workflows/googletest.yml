@@ -1,0 +1,26 @@
+name: GTests
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Configure CMake
+      run: cmake -S $GITHUB_WORKSPACE -B ${{runner.workspace}}/build
+
+    - name: Build
+      working-directory: ${{runner.workspace}}/build
+      run: cmake --build .
+
+    - name: Test
+      uses: akhtyamovpavel/ActionGtestReport@v0.0.1
+      with:
+        who-to-greet: 'Mona the Octocat'
