@@ -11,16 +11,15 @@ jobs:
         shell: bash
 
     steps:
+    - name: Install gtest manually
+      run: sudo apt-get install libgtest-dev && cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make && sudo cp *.a /usr/lib && sudo ln -s /usr/lib/libgtest.a /usr/local/lib/libgtest.a && sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/libgtest_main.a
     - uses: actions/checkout@v2
-
-    - name: Configure CMake
-      run: cmake -S $GITHUB_WORKSPACE -B ${{runner.workspace}}/build
-
     - name: Build
       working-directory: ${{runner.workspace}}/build
-      run: cmake --build .
+      run: mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-Werror" ..
 
     - name: Test
       uses: akhtyamovpavel/ActionGtestReport@v0.0.9
       with:
         who-to-greet: 'Mona the Octocat'
+      run: cd build && make
