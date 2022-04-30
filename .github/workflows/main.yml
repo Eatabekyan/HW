@@ -21,7 +21,7 @@ jobs:
       run: mkdir build && mkdir 3rdparty
     
     - name: Install gtest manually
-      working-directory: ${{github.workspace}}/3rdparty
+      working-directory: ${{github.workspace}}/task6/3rdparty
       run: git clone https://github.com/google/googletest.git -b release-1.11.0
       
     - name: Configure CMake
@@ -30,9 +30,9 @@ jobs:
       run: cmake -B ${{github.workspace}}/task6 -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
     - name: Build
-      working-directory: ${{github.workspace}}/build
+      working-directory: ${{github.workspace}}/task6/build
       # Build your program with the given configuration
-      run: cmake --build ${{github.workspace}}/task6/build --config ${{env.BUILD_TYPE}}
+      run: cmake --build ${{github.workspace}}/task6 --config ${{env.BUILD_TYPE}}
 
     
    
