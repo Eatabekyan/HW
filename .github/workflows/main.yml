@@ -36,9 +36,9 @@ jobs:
     
     - name: Test
       uses: akhtyamovpavel/ActionGtestReport@v0.0.9
-        with:
-          name: test-report
-          path: output/test-report/report.xml
+      with:
+        name: test-report
+        path: output/test-report/report.xml
       
       
       
