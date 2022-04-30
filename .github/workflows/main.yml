@@ -34,7 +34,12 @@ jobs:
       with:
         name: CI
         path: test-report/report.xml
-      
+    - name: UploadArtifacts
+      run: make install
+      with:
+        name: Distributive
+        path: bin
+        path: lib  
     
    
       
