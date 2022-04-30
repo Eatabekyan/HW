@@ -27,7 +27,7 @@ jobs:
     - name: Build
       working-directory: ${{github.workspace}}/task6/build
       # Build your program with the given configuration
-      run: cmake --build ${{github.workspace}}/task6 --config ${{env.BUILD_TYPE}}
+      run: cmake ..
 
     
    
