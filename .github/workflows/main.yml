@@ -30,21 +30,17 @@ jobs:
       run: cmake ..
       
     - name: Test
-      uses: akhtyamovpavel/ActionGtestReport@v0.0.9
-      description: 'Greet someone and record the time'
       inputs:
-        exec-path:  # id of input
-          description: 'Path to executable for running tests'
+        exec-path:  akhtyamovpavel/ActionGtestReport@v0.0.9
           required: true
-        report-path:
+        report-path: 
           description: 'Output path to report'
           required: true
         working-directory:
           description: 'Path to workdir'
           required: True
       outputs:
-        time: # id of output
-          description: 'The time we greeted you'
+        report-path: test-report/report.xml
       runs:
         using: 'node12'
         main: 'index.js'
