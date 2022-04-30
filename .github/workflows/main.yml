@@ -35,6 +35,7 @@ jobs:
         name: CI
         path: test-report/report.xml
     - name: MAKE INSTALL
+      working-directory: ${{github.workspace}}/task6/build
       run: make install
     - name: UploadArtifacts
       uses: actions/upload-artifact@v3
