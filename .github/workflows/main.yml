@@ -31,8 +31,7 @@ jobs:
       
     - name: Test
       uses: akhtyamovpavel/ActionGtestReport@v0.0.9    
-      outputs:
-        report-path: test-report/report.xml
+      run: mkdir test-report && touch test-report/report.xml
       
     
    
