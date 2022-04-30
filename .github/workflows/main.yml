@@ -34,12 +34,7 @@ jobs:
       run: cmake --build ${{github.workspace}}/task6/build --config ${{env.BUILD_TYPE}}
 
     
-    - name: Test
-      uses: akhtyamovpavel/ActionGtestReport@v0.0.9
-      with:
-        name: test-report
-        path: output/test-report/report.xml
-      
+   
       
       
       
