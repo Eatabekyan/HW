@@ -28,6 +28,26 @@ jobs:
       working-directory: ${{github.workspace}}/task6/build
       # Build your program with the given configuration
       run: cmake ..
+      
+    - name: Test
+      uses: akhtyamovpavel/ActionGtestReport@v0.0.9
+      description: 'Greet someone and record the time'
+      inputs:
+        exec-path:  # id of input
+          description: 'Path to executable for running tests'
+          required: true
+        report-path:
+          description: 'Output path to report'
+          required: true
+        working-directory:
+          description: 'Path to workdir'
+          required: True
+      outputs:
+        time: # id of output
+          description: 'The time we greeted you'
+      runs:
+        using: 'node12'
+        main: 'index.js'
 
     
    
