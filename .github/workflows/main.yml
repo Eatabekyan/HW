@@ -40,9 +40,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: Distributive
-        path: bin
-        name: Distributive
-        path: lib  
+        path: bin && lib
     
    
       
