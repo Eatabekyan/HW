@@ -29,4 +29,22 @@ jobs:
       # Execute tests defined by the CMake configuration.  
       # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
       run: ctest -C ${{env.BUILD_TYPE}}
-      
+      name: 'Hello World'
+      description: 'Greet someone and record the time'
+      inputs:
+        exec-path:  # id of input
+          description: 'Path to executable for running tests'
+          required: true
+        report-path:
+          description: 'Output path to report'
+          required: true
+        working-directory:
+          description: 'Path to workdir'
+          required: True
+      outputs:
+        time: # id of output
+          description: 'The time we greeted you'
+      runs:
+        using: 'node12'
+        main: 'index.js'
+
