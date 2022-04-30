@@ -24,7 +24,7 @@ jobs:
 
     - name: Build
       # Build your program with the given configuration
-      run: mkdir build && cd build && cmake ../task6
+      run: mkdir build && cd build && cmake ../task6 && make
 
     - name: Test
       working-directory: ${{github.workspace}}/build
