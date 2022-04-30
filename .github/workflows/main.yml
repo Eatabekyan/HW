@@ -34,8 +34,10 @@ jobs:
       with:
         name: CI
         path: test-report/report.xml
-    - name: UploadArtifacts
+    - name: MAKE INSTALL
       run: make install
+    - name: UploadArtifacts
+      uses: actions/upload-artifact@v3
       with:
         name: Distributive
         path: bin
