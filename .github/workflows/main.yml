@@ -31,6 +31,7 @@ jobs:
       
     - name: Test
       uses: akhtyamovpavel/ActionGtestReport@v0.0.9
+      id: download
       with:
         path: test-report/report.xml
 
