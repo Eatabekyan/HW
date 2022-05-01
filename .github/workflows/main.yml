@@ -29,12 +29,11 @@ jobs:
       # Build your program with the given configuration
       run: cmake ..
       
-    - name: Test
+   - name: Test
       uses: akhtyamovpavel/ActionGtestReport@v0.0.9
       id: download
       with:
         path: test-report/report.xml
-
    
       
       
