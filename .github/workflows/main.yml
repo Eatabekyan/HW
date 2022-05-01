@@ -29,16 +29,9 @@ jobs:
       # Build your program with the given configuration
       run: cmake ..
       
-   - name: Test
+    - name: Test
       uses: akhtyamovpavel/ActionGtestReport@v0.0.9
+      id: download
       with:
-      	files: |
-      	  test-report/report.xml 
-   
-      
-      
-      
-      
-      
-      
-
+        files: |
+          test-report/report.xml
