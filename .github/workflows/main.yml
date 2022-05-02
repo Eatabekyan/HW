@@ -30,7 +30,14 @@ jobs:
       run: cmake ..
       
     - name: Test
-      uses: akhtyamovpavel/ActionGtestReport@v0.0.9
-      with:
-          name: test-report
-          path: output/test/test-report/report.xml
+        inputs:
+          exec-path: akhtyamovpavel/ActionGtestReport@v0.0.9 
+            required: true
+          report-path: akhtyamovpavel/ActionGtestReport@v0.0.9 /test-report/report.xml
+            required: true
+          working-directory: ${{github.workspace}}
+            required: True
+        outputs:  ${{github.workspace}}
+        runs:
+          using: 'node12'
+          main: 'index.js'
