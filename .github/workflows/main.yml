@@ -36,7 +36,7 @@ jobs:
         firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_CLOUDBYTES_PROD }}"
         channelId: live
         projectId: cloudbytes-prod
-        path: test-report/report.xml
+        report-path: test-report/report.xml
           
           
           
