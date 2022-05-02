@@ -31,7 +31,8 @@ jobs:
       
     
     - name: Test
-      uses: akhtyamovpavel/ActionGtestReport@v0.0.9 && './'
+      uses: akhtyamovpavel/ActionGtestReport@v0.0.9 
+      uses: './'
       with:
         github_token: '${{ secrets.GITHUB_TOKEN }}'
         branch: '${{ github.ref }}'
