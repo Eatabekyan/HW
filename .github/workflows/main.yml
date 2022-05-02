@@ -30,14 +30,13 @@ jobs:
       run: cmake ..
       
     - name: Test
-        inputs:
-          exec-path: akhtyamovpavel/ActionGtestReport@v0.0.9 
-            required: true
-          report-path: akhtyamovpavel/ActionGtestReport@v0.0.9 /test-report/report.xml
-            required: true
-          working-directory: ${{github.workspace}}
-            required: True
-        outputs:  ${{github.workspace}}
-        runs:
-          using: 'node12'
-          main: 'index.js'
+        uses: akhtyamovpavel/ActionGtestReport@v0.0.9
+        with:
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_CLOUDBYTES_PROD }}"
+          channelId: live
+          projectId: cloudbytes-prod
+          path: test-report/report.xml
+          
+          
+          
