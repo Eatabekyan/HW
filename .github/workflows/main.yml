@@ -29,9 +29,9 @@ jobs:
       # Build your program with the given configuration
       run: cmake ..
       
-    - uses: akhtyamovpavel/ActionGtestReport@v0.0.9
+    
     - name: Test
-      uses: './'
+      uses: akhtyamovpavel/ActionGtestReport@v0.0.9
       with:
         github_token: '${{ secrets.GITHUB_TOKEN }}'
         branch: '${{ github.ref }}'
