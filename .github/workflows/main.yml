@@ -39,13 +39,10 @@ jobs:
          
     - name: Test
       run: cd task6 && tar -zcf test-report.tar.gz report.xml
-      	
+      
     - name: UploadArtifacts
       uses: actions/upload-artifact@v1
       with:
         name: Distributive
         path: task6/result/exe/
-      	
-          
-          
             
