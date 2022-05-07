@@ -42,8 +42,8 @@ jobs:
          
     - name: Test
       run: |
-        cd task6
-        tar -zcvf test-report.tar.gz report.xml
+      cd task6
+      tar -zcvf test-report.tar.gz report.xml
       	
     - name: UploadArtifacts
       uses: actions/upload-artifact@v1
