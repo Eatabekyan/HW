@@ -1,4 +1,4 @@
-nname: CMake
+name: CMake
 on: [push]
 env:
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
@@ -32,7 +32,7 @@ jobs:
         
          
     - name: Test
-       working-directory: ${{github.workspace}}/task6
+      working-directory: ${{github.workspace}}/task6
       run: tar -czf test-report.tar.gz report.xml
       
     - name: UploadArtifacts
