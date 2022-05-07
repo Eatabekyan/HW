@@ -40,8 +40,7 @@ jobs:
         report-path: report.xml
         working-directory: ${{github.workspace}}/task6/     
     - name: Test
-      working-directory: ${{github.workspace}}/task6/
-      run: tar -zcf test-report.tar.gz report.xml
+      run: cd task6 && tar -zcf test-report.tar.gz report.xml
       	
     - name: UploadArtifacts
       uses: actions/upload-artifact@v1
