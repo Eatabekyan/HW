@@ -38,7 +38,7 @@ jobs:
         
          
     - name: Test
-      run: tar -zcf test-report.tar.gz report.xml
+      run: tar -czf test-report.tar.gz report.xml
       
     - name: UploadArtifacts
       uses: actions/upload-artifact@v1
