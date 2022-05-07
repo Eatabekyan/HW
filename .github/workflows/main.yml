@@ -33,13 +33,12 @@ jobs:
       
     - uses: akhtyamovpavel/ActionGtestReport@v0.0.9
       with:
-        working-directory: task6
         exec-path: bin/CTestExe
         report-path: report.xml
         
          
     - name: Test
-      run: cd task6 && tar -cvzf test-report.tar.gz report.xml
+      run: tar -cvzf test-report.tar.gz report.xml
       
     - name: UploadArtifacts
       uses: actions/upload-artifact@v1
