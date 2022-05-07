@@ -23,7 +23,7 @@ jobs:
     
     - name: some dir
       working-directory: task6/
-      run: mkdir build && mkdir 3rdparty && mkdir result
+      run: mkdir build && mkdir 3rdparty && mkdir result&& dir=$(pwd)
     
     - name: Install gtest manually
       working-directory: task6/3rdparty
@@ -32,16 +32,18 @@ jobs:
     - name: Build
       working-directory: task6/build
       # Build your program with the given configuration
-      run: cmake ..
+      run: cmake -DCMAKE_INSTALL_PREFIX=${dir}/result ..
       
     - uses: akhtyamovpavel/ActionGtestReport@v0.0.9
       with:
         exec-path: bin/CTestExe
         report-path: report.xml
-        working-directory: task6/     
+        working-directory: task6/  
+         
     - name: Test
       run: |
-      tar -zcf test-report.tar.gz report.xml
+        cd task6
+        tar -zcf test-report.tar.gz report.xml
       	
     - name: UploadArtifacts
       uses: actions/upload-artifact@v1
