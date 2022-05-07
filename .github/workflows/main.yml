@@ -23,7 +23,7 @@ jobs:
     
     - name: some dir
       working-directory: task6/
-      run: mkdir build && mkdir 3rdparty
+      run: mkdir build && mkdir 3rdparty && mkdir result
     
     - name: Install gtest manually
       working-directory: task6/3rdparty
