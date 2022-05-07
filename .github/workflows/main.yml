@@ -1,39 +1,32 @@
 name: CMake
 on: [push]
-env:
-  # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
+env: 
   BUILD_TYPE: Release
-jobs:
-  build:
-    # The CMake configure and build commands are platform agnostic and should work equally well on Windows or Mac.
-    # You can convert this to a matrix build if you need cross-platform coverage.
-    # See: https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
+jobs: 
+  build: 
     runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    
-    - name: some dir
-      run: cd task6 && mkdir build && mkdir result && dir=$(pwd)
-
-      
-    - name: Build
-      run: cd task6 && git clone https://github.com/google/googletest.git&& mv googletest 3rdparty && mkdir build && mkdir result && dir=$(pwd) && cd build 
-cmake -DCMAKE_INSTALL_PREFIX=${dir}/result .. && make && make install
-      
-    - uses: akhtyamovpavel/ActionGtestReport@v0.0.9
-      with:
-        exec-path: bin/CTestExe
-        report-path: report.xml
+    steps: 
+      - 
+        uses: actions/checkout@v3
+      - 
+        name: "some dir"
+        run: "cd task6 && mkdir build && mkdir result && dir=$(pwd)"
+      - 
+        name: Build
+        run: "cd task6 && git clone https://github.com/google/googletest.git&& mv googletest 3rdparty && mkdir build && mkdir result && dir=$(pwd) && cd build && cmake -DCMAKE_INSTALL_PREFIX=${dir}/result .. && make && make install"
+      - 
+        uses: akhtyamovpavel/ActionGtestReport@v0.0.9
+        with: 
+          exec-path: bin/CTestExe
+          report-path: report.xml
+          working-directory: task6/
+      - 
+        name: Test
+        run: "tar -czf test-report.tar.gz report.xml"
         working-directory: task6/
-        
-         
-    - name: Test
-      working-directory: task6/
-      run: tar -czf test-report.tar.gz report.xml
-      
-    - name: UploadArtifacts
-      uses: actions/upload-artifact@v1
-      with:
-        name: Distributive
-        path: task6/build/exe/
-            
+      - 
+        name: UploadArtifacts
+        uses: actions/upload-artifact@v1
+        with: 
+          name: Distributive
+          path: task6/build/exe/
