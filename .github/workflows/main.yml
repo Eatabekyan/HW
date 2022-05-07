@@ -13,26 +13,22 @@ jobs:
     - uses: actions/checkout@v3
     
     - name: some dir
-      working-directory: ${{github.workspace}}/task6
-      run: mkdir build && mkdir result && dir=$(pwd)
-    
-    - name: Install gtest manually
-      working-directory: ${{github.workspace}}/task6
-      run: sudo apt install git && git clone https://github.com/google/googletest.git -b release-1.11.0 && mv googletest 3rdparty
+      run: cd task6 && mkdir build && mkdir result && dir=$(pwd)
+
       
     - name: Build
-      working-directory: ${{github.workspace}}/task6
-      run: cd build && cmake -DCMAKE_INSTALL_PREFIX=${dir}/result ..
+      run: cd task6 && git clone https://github.com/google/googletest.git&& mv googletest 3rdparty && mkdir build && mkdir result && dir=$(pwd) && cd build 
+cmake -DCMAKE_INSTALL_PREFIX=${dir}/result .. && make && make install
       
     - uses: akhtyamovpavel/ActionGtestReport@v0.0.9
       with:
         exec-path: bin/CTestExe
         report-path: report.xml
-        working-directory: ${{github.workspace}}/task6
+        working-directory: task6/
         
          
     - name: Test
-      working-directory: ${{github.workspace}}/task6
+      working-directory: task6/
       run: tar -czf test-report.tar.gz report.xml
       
     - name: UploadArtifacts
