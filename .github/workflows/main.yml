@@ -35,11 +35,11 @@ jobs:
       with:
         exec-path: bin/CTestExe
         report-path: report.xml
-        working-directory: task6
+        working-directory: task6/
         
          
     - name: Test
-      run: tar -czf test-report.tar.gz report.xml
+      run: cd task6 && tar -czf test-report.tar.gz report.xml
       
     - name: UploadArtifacts
       uses: actions/upload-artifact@v1
