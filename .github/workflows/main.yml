@@ -38,8 +38,9 @@ jobs:
         working-directory: task6/  
          
     - name: Test
-      run:  cd task6
-      run: tar -zcvf test-report.tar.gz report.xml
+      run: |
+        cd task6
+        tar -zcvf test-report.tar.gz report.xml
       	
     - name: UploadArtifacts
       uses: actions/upload-artifact@v1
