@@ -40,8 +40,7 @@ jobs:
         report-path: report.xml
         working-directory: task6/     
     - name: Test
-      run: | 
-      cd task6
+      run: |
       tar -zcf test-report.tar.gz report.xml
       	
     - name: UploadArtifacts
