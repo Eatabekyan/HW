@@ -22,7 +22,7 @@ jobs:
     - uses: actions/checkout@v3
     
     - name: some dir
-      run: cd task6 && mkdir build && mkdir 3rdparty && mkdir result&& dir=$(pwd)
+      run: cd task6 && mkdir build && mkdir result&& dir=$(pwd) && mv googletest 3rdparty
     
     - name: Install gtest manually
       run: cd task6 && cd 3rdparty && git clone https://github.com/google/googletest.git
@@ -38,9 +38,7 @@ jobs:
         working-directory: task6/  
          
     - name: Test
-      run: |
-            cd task6
-            tar -zcf test-report.tar.gz report.xml
+      run: cd task6 && tar -zcf test-report.tar.gz report.xml
       	
     - name: UploadArtifacts
       uses: actions/upload-artifact@v1
